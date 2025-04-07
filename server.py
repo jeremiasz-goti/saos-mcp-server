@@ -26,12 +26,18 @@ async def make_request(url: str) -> dict[str, Any] | None:
 
 @mcp.tool()
 async def get_judgments() -> dict[str, Any] | None:
+    """Get judgments from SAOS API."""
     results = await make_request(f"{API_BASE}/search/judgments")
     return results
 
 @mcp.tool()
-async def get_judgment(id: str) -> dict[str, Any] | None:
-    results = await make_request(f"{API_BASE}/search/judgments/{id}")
+async def get_judgment(id: int) -> dict[str, Any] | None:
+    """Get a specific judgment from SAOS API.
+
+    Args:
+        id: ID of the judgment
+    """
+    results = await make_request(f"{API_BASE}/judgments/{id}")
     return results
 
 
