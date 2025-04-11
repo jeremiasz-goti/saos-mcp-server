@@ -52,7 +52,6 @@ async def search_judgments(
         page_size: Number of results per page (10–100).
     """
     params: dict[str, Any] = {
-        "all": query,
         "judgeName": judge_name,
         "caseNumber": case_number,
         "courtType": court_type,
